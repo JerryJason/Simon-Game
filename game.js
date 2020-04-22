@@ -1,4 +1,4 @@
-const buttonColors = [ 'red', 'blue', 'yellow', 'green' ];
+const buttonColors = ['red', 'blue', 'yellow', 'green'];
 let gamePattern = [];
 let userClickedPattern = [];
 let started = false;
@@ -15,7 +15,7 @@ function nextSequence() {
 	userClickedPattern = [];
 }
 
-$('.btn').click(function() {
+$('.btn').click(function () {
 	let userChosenColor = this.id;
 	userClickedPattern.push(userChosenColor);
 	playSound(userChosenColor);
@@ -23,7 +23,7 @@ $('.btn').click(function() {
 	checkAnswer(userClickedPattern.length - 1);
 });
 
-$('body').keypress(function() {
+$('body').keypress(function () {
 	if (started === false) {
 		nextSequence();
 		started = true;
@@ -68,3 +68,8 @@ function animatePress(currentColor) {
 		$(`.${currentColor}`).removeClass('pressed');
 	}, 100);
 }
+
+function instructions() {
+	let txt = alert("The goal of the game is to correctly repeat an increasingly longer sequence of color flashes - starting with the first flash to the most recent one. However, upon each new sequence, you will only be shown the most recent flash, so you must remember and repeat all the previous flashes sequentially before finally clicking the most recent one.");
+	document.getElementById("instructions").innerHTML = txt;
+};
