@@ -32,6 +32,15 @@ $('body').keypress(function () {
 	}
 });
 
+$('.startButton').click(function () {
+	if (started === false) {
+		nextSequence();
+		started = true;
+	} else {
+		console.log('game already started');
+	}
+});
+
 function checkAnswer(currentLevel) {
 	if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
 		if (userClickedPattern.length === gamePattern.length) {
